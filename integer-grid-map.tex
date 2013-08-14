@@ -6,7 +6,7 @@
 \usepackage{fancybox}
 
 \begin{document}
-\title{Integer-Grid Maps for Quad Meshing\\
+\title{Integer-Grid Maps for Reliable Quad Meshing\\
 \small{[David Bommes et.al Sig 2013]}}
 \author{Tengfei Jiang}
 
@@ -36,7 +36,7 @@
     \item \textcolor{blue}{Coarse Quad layer}: Spectral method (``Dong 2006'',''Huang 2008'')
   \end{itemize}
 \item Locally injective parameterization: \\local stiffening(``Mixed'')/anti-flip (``Bounded Distortion'')
-\item MIQP Solver: greed rounding (``Mixed'')
+\item MIQP Solver: greedy rounding (``Mixed'')
 \item Size/Direction Control: (``Huang 2008'' ``A wave based'')
 \end{itemize}
 \end{block}
@@ -169,8 +169,8 @@ E(f\circ g) \approx \frac{1}{2}\sum{s\in T_{M_{-}}} A_{s}\|\nabla g_s - I\|^2
 \begin{block}{}
 \begin{eqnarray}
 (\Delta u, \Delta v)^T = (u_i,v_i)^T-\eta (u_j,v_j)^T\\
-\{sgn(\Delta u)|M\}\cdot \Delta u \geq 1\\
-or \{sgn(\Delta v)|M\}\cdot \Delta v \geq 1
+\{sgn(\Delta u)|_M\}\cdot \Delta u \geq 1\\
+or \{sgn(\Delta v)|_M\}\cdot \Delta v \geq 1
 \end{eqnarray}
 \end{block}
 Q: Does this operation guarantee a feasible domain?\\
@@ -187,7 +187,7 @@ A: A global scale guarantees it.
 \end{figure}
 \begin{itemize}
 \item dec(Y),sep(N): can not find solution in 8h
-\item dec(N),sep(Y): find a low quality result in 20m for pic 1, and can not find a solution in $8h$ for pic 3.
+\item dec(N),sep(Y): find a low quality result in 20m, and can not find a solution in $8h$ with comparable quality of pic 3.
 \item dec(Y),sep(Y): find a result in 17s for pic 3.
 \end{itemize}
 \end{frame}
